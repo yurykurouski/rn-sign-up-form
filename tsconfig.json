@@ -4,5 +4,6 @@
     "types": [
       "react-native",
     ],
+    "baseUrl": "src",
   }
 }
