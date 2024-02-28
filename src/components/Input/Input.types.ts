@@ -7,4 +7,5 @@ export type TProps = {
   type?: EInputType;
   placeholder?: string;
   isNewPwd?: boolean;
+  optional?: boolean;
 };

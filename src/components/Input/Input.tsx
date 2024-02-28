@@ -1,4 +1,10 @@
-import { GRAY_600, VisibilityIcon, VisibilityOffIcon } from 'assets';
+import {
+  ExpandIcon,
+  GRAY_600,
+  GRAY_900,
+  VisibilityIcon,
+  VisibilityOffIcon,
+} from 'assets';
 import { Label } from 'components/Label';
 import React, { useCallback, useState } from 'react';
 import { Pressable, TextInput, TextInputProps, View } from 'react-native';
@@ -13,8 +19,10 @@ export const Input = ({
   placeholder,
   type,
   isNewPwd,
+  optional = false,
 }: TProps) => {
   const [isPwdVisible, setIsPwdVisible] = useState(false);
+  const [isInputVisible, setIsInputVisible] = useState(!optional);
 
   const typeProps: TextInputProps =
     type === EInputType.EMAIL
@@ -30,34 +38,49 @@ export const Input = ({
           passwordRules: isNewPwd ? 'rule' : undefined,
           keyboardType: 'default',
           secureTextEntry: isPwdVisible,
+          maxLength: 15,
         };
 
   const handleIconPress = useCallback(() => {
     setIsPwdVisible(prev => !prev);
   }, [setIsPwdVisible]);
+  const handleExpandPress = useCallback(() => {
+    optional && setIsInputVisible(prev => !prev);
+  }, [optional]);
 
   return (
     <View style={styles.container}>
-      <Label value={name} />
-      <View style={styles.inputContainer}>
-        <TextInput
-          onChangeText={onChange}
-          value={value}
-          style={styles.input}
-          placeholder={placeholder}
-          placeholderTextColor={GRAY_600}
-          {...typeProps}
-        />
-        {type === EInputType.PASSWORD && (
-          <Pressable onPress={handleIconPress}>
-            {isPwdVisible ? (
-              <VisibilityIcon size={30} color={GRAY_600} />
-            ) : (
-              <VisibilityOffIcon size={30} color={GRAY_600} />
-            )}
-          </Pressable>
+      <Pressable onPress={handleExpandPress} style={styles.labelContainer}>
+        <Label value={name} />
+        {optional && (
+          <ExpandIcon
+            size={20}
+            color={GRAY_900}
+            style={isInputVisible ? styles.expandIcon : {}}
+          />
         )}
-      </View>
+      </Pressable>
+      {isInputVisible && (
+        <View style={styles.inputContainer}>
+          <TextInput
+            onChangeText={onChange}
+            value={value}
+            style={styles.input}
+            placeholder={placeholder}
+            placeholderTextColor={GRAY_600}
+            {...typeProps}
+          />
+          {type === EInputType.PASSWORD && (
+            <Pressable onPress={handleIconPress} hitSlop={10}>
+              {isPwdVisible ? (
+                <VisibilityIcon size={24} color={GRAY_600} />
+              ) : (
+                <VisibilityOffIcon size={24} color={GRAY_600} />
+              )}
+            </Pressable>
+          )}
+        </View>
+      )}
     </View>
   );
 };

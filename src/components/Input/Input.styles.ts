@@ -19,7 +19,13 @@ export const styles = StyleSheet.create({
   },
   input: {
     flexGrow: 1,
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Inter',
   },
+  labelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  expandIcon: { transform: [{ rotate: '180deg' }] },
 });
