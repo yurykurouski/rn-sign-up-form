@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, TextStyle } from 'react-native';
 
-export const Label = React.memo(({ value }: { value: string }) => (
-  <Text style={styles.label}>{value}</Text>
+type TProps = {
+  value: string;
+  style?: TextStyle;
+};
+
+export const Label = React.memo<TProps>(({ value, style }) => (
+  <Text style={[styles.label, style]}>{value}</Text>
 ));
 
 const styles = StyleSheet.create({
   label: {
     fontWeight: 'bold',
+    fontSize: 18,
   },
 });
