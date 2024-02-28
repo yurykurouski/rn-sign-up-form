@@ -3,6 +3,7 @@ import { Platform, ViewStyle } from 'react-native';
 export const ACCENT_COLOR = '#111928';
 export const DARK_COLOR = '#1b9a6d';
 
+export const GRAY_50 = '#f9fafb';
 export const GRAY_300 = '#d1d5db';
 export const GRAY_600 = '#4b5563';
 export const GRAY_900 = '#141921';
