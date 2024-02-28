@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* SignUpFormTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SignUpFormTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-SignUpForm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-SignUpForm.a */; };
+		0F024D72DC0940438D3FEA34 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C2EDCF97AB94A30961C959C /* Inter-Bold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		24FDDE6C26BD4711B667E57F /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD019C5887D244E8B55AF36F /* Inter-SemiBold.ttf */; };
 		2B0DB7EACA5D4C27A61FAAB3 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 715A6B02B8B744E3B19595C8 /* Inter-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-SignUpForm-SignUpFormTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SignUpForm-SignUpFormTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C5625F0EB9C945B6A250B14C /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF2324D7BFD54EE481487C03 /* Inter-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,7 @@
 		00E356EE1AD99517003FC87E /* SignUpFormTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpFormTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* SignUpFormTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignUpFormTests.m; sourceTree = "<group>"; };
+		0C2EDCF97AB94A30961C959C /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* SignUpForm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUpForm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SignUpForm/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = SignUpForm/AppDelegate.mm; sourceTree = "<group>"; };
@@ -45,7 +49,9 @@
 		715A6B02B8B744E3B19595C8 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SignUpForm/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SignUpForm-SignUpFormTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpForm-SignUpFormTests.release.xcconfig"; path = "Target Support Files/Pods-SignUpForm-SignUpFormTests/Pods-SignUpForm-SignUpFormTests.release.xcconfig"; sourceTree = "<group>"; };
+		AF2324D7BFD54EE481487C03 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FD019C5887D244E8B55AF36F /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				715A6B02B8B744E3B19595C8 /* Inter-Regular.ttf */,
+				0C2EDCF97AB94A30961C959C /* Inter-Bold.ttf */,
+				AF2324D7BFD54EE481487C03 /* Inter-Medium.ttf */,
+				FD019C5887D244E8B55AF36F /* Inter-SemiBold.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -256,6 +265,9 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2B0DB7EACA5D4C27A61FAAB3 /* Inter-Regular.ttf in Resources */,
+				0F024D72DC0940438D3FEA34 /* Inter-Bold.ttf in Resources */,
+				C5625F0EB9C945B6A250B14C /* Inter-Medium.ttf in Resources */,
+				24FDDE6C26BD4711B667E57F /* Inter-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
