@@ -10,6 +10,7 @@ module.exports = {
           assets: './src/assets',
           constants: './src/constants',
           types: './src/types',
+          screens: './src/screens',
         },
       },
     ],
