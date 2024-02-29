@@ -1,20 +1,23 @@
-import { ELEVATION_10, GRAY_300, GRAY_900 } from 'assets';
+import React, { useCallback, useState } from 'react';
+import { Image, View } from 'react-native';
 import { Label } from 'components/Label';
 import {
   SIGN_UP_REGION_LABEL,
   SIGN_UP_REGION_PLACEHOLDER,
   SIGN_UP_REGION_SEARCH_PLACEHOLDER,
 } from 'constants/index';
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+
 import { Dropdown as DropdownComponent } from 'react-native-element-dropdown';
 import { InputSearch } from './InputSearch';
+import { styles } from './Dropdown.styles';
+import { BASE_URL, API_GET_COUNTRY_LOGO } from 'api';
+import { ListItem } from './ListItem';
+import { TCountry } from 'types';
 
 type TProps = {
-  //TODO: add types
-  data: any[];
-  value: string;
-  setValue: (value: string) => void;
+  data?: TCountry[] | null;
+  value?: TCountry | null;
+  setValue?: (value: TCountry) => void;
 };
 
 export const Dropdown = ({ data = [], value, setValue }: TProps) => {
@@ -27,6 +30,11 @@ export const Dropdown = ({ data = [], value, setValue }: TProps) => {
     />
   );
 
+  const renderItem = useCallback(
+    (item: TCountry) => <ListItem id={item.id} name={item.name} />,
+    [],
+  );
+
   return (
     <View style={styles.container}>
       <Label value={SIGN_UP_REGION_LABEL} />
@@ -36,52 +44,29 @@ export const Dropdown = ({ data = [], value, setValue }: TProps) => {
         selectedTextStyle={styles.selectedTextStyle}
         containerStyle={styles.dropdownContainer}
         iconStyle={styles.iconStyle}
-        data={data}
+        data={data!}
         search
         renderInputSearch={renderInputSearch}
         maxHeight={300}
-        labelField="label"
-        valueField="value"
+        labelField="name"
+        valueField="id"
         placeholder={SIGN_UP_REGION_PLACEHOLDER}
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
+        autoScroll={false}
         onChange={item => {
-          setValue(item.value);
+          setValue?.(item);
           setIsFocus(false);
         }}
+        renderLeftIcon={() => (
+          <Image
+            src={`${BASE_URL}${API_GET_COUNTRY_LOGO}${value?.id}`}
+            style={styles.image}
+          />
+        )}
+        renderItem={renderItem}
       />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-  },
-  dropdownContainer: {
-    ...ELEVATION_10,
-    borderRadius: 6,
-  },
-  dropdown: {
-    paddingVertical: 12,
-    borderColor: GRAY_300,
-    borderWidth: 0.5,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    marginVertical: 6,
-  },
-  dropdownFocused: {
-    borderColor: GRAY_900,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-});

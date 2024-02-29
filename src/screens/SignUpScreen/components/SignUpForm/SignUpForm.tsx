@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import { EFormInputName, EInputType, ERR_TYPES, TFormInputs } from 'types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,6 +23,7 @@ import { Dropdown } from 'components/Dropdown';
 import { Button } from 'components/Button';
 import { FormAgreement } from '../FormAgreement';
 import { LoginLink } from '../LoginLink';
+import { CountryDataContext } from 'context/CountryDataContext';
 
 export const SignUpForm = React.memo(() => {
   const {
@@ -37,6 +38,8 @@ export const SignUpForm = React.memo(() => {
     criteriaMode: 'all',
   });
 
+  const context = useContext(CountryDataContext!);
+
   const onSubmit = data => console.log(data);
 
   const handleTrigger = useCallback(
@@ -47,9 +50,9 @@ export const SignUpForm = React.memo(() => {
   return (
     <>
       <Dropdown
-        value="test"
-        setValue={() => console.log('test')}
-        data={['test', 'test']}
+        value={context?.userCountry}
+        setValue={context?.setUserCountry}
+        data={context?.countries}
       />
 
       <FormInput
