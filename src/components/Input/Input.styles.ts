@@ -5,7 +5,7 @@ const VERTICAL_PADDING = 16;
 
 export const styles = StyleSheet.create({
   container: {
-    gap: 10,
+    gap: 6,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     borderColor: GRAY_300,
     paddingVertical: VERTICAL_PADDING,
     paddingHorizontal: 4,
-    borderRadius: 4,
+    borderRadius: 8,
     backgroundColor: GRAY_50,
   },
   input: {

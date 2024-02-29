@@ -1,5 +1,6 @@
 import {
   ExpandIcon,
+  GRAY_400,
   GRAY_600,
   GRAY_900,
   VisibilityIcon,
@@ -8,19 +9,20 @@ import {
 import { Label } from 'components/Label';
 import React, { useCallback, useState } from 'react';
 import { Pressable, TextInput, TextInputProps, View } from 'react-native';
-import { EInputType } from 'types';
+import { EInputType, TInputProps } from 'types';
 import { styles } from './Input.styles';
-import { TProps } from './Input.types';
 
 export const Input = ({
   value,
-  onChange,
+  onChangeText,
   name,
   placeholder,
-  type,
+  type = EInputType.EMAIL,
   isNewPwd,
   optional = false,
-}: TProps) => {
+  containerStyle,
+  ...rest
+}: TInputProps) => {
   const [isPwdVisible, setIsPwdVisible] = useState(false);
   const [isInputVisible, setIsInputVisible] = useState(!optional);
 
@@ -37,7 +39,7 @@ export const Input = ({
           autoComplete: isNewPwd ? 'new-password' : 'current-password',
           passwordRules: isNewPwd ? 'rule' : undefined,
           keyboardType: 'default',
-          secureTextEntry: isPwdVisible,
+          secureTextEntry: !isPwdVisible,
           maxLength: 15,
         };
 
@@ -49,7 +51,7 @@ export const Input = ({
   }, [optional]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, containerStyle]}>
       <Pressable onPress={handleExpandPress} style={styles.labelContainer}>
         <Label value={name} />
         {optional && (
@@ -63,12 +65,14 @@ export const Input = ({
       {isInputVisible && (
         <View style={styles.inputContainer}>
           <TextInput
-            onChangeText={onChange}
+            onChangeText={onChangeText}
             value={value}
             style={styles.input}
             placeholder={placeholder}
-            placeholderTextColor={GRAY_600}
+            placeholderTextColor={GRAY_400}
+            autoCorrect={false}
             {...typeProps}
+            {...rest}
           />
           {type === EInputType.PASSWORD && (
             <Pressable onPress={handleIconPress} hitSlop={10}>
