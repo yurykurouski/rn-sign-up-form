@@ -11,6 +11,7 @@ module.exports = {
           constants: './src/constants',
           types: './src/types',
           screens: './src/screens',
+          utils: './src/utils',
         },
       },
     ],
