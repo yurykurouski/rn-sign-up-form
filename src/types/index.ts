@@ -63,3 +63,11 @@ export enum ERR_TYPES {
   MIN_LOWERCASE = 'minLowercase',
   MIN_SYMBOL = 'minSymbol',
 }
+
+export type TCountry = {
+  alfa2: string;
+  alfa3: string;
+  id: number;
+  name: string;
+  phoneCode: string;
+};
