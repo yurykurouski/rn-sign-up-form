@@ -13,6 +13,6 @@ export const Label = React.memo<TProps>(({ value, style }) => (
 const styles = StyleSheet.create({
   label: {
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
   },
 });
