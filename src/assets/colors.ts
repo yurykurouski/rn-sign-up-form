@@ -5,8 +5,10 @@ export const DARK_COLOR = '#1b9a6d';
 
 export const GRAY_50 = '#f9fafb';
 export const GRAY_300 = '#d1d5db';
+export const GRAY_400 = '#a2a6ad';
 export const GRAY_600 = '#4b5563';
 export const GRAY_900 = '#141921';
+export const RED = '#E02424';
 
 export const ELEVATION_1: ViewStyle = Platform.select({
   ios: {
