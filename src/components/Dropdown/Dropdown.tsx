@@ -58,14 +58,13 @@ export const Dropdown = ({ data = [], value, setValue }: TProps) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    padding: 16,
   },
   dropdownContainer: {
     ...ELEVATION_10,
     borderRadius: 6,
   },
   dropdown: {
-    height: 50,
+    paddingVertical: 12,
     borderColor: GRAY_300,
     borderWidth: 0.5,
     borderRadius: 8,
