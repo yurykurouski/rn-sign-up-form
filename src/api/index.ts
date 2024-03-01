@@ -1,5 +1,8 @@
 import axios from 'axios';
+
 import { TRegisterUserData } from 'types';
+import { showAlert } from 'utils';
+
 export const BASE_URL = 'https://stage.valetax.com';
 
 const API_GET_COUNTRY_SNAP = '/api.guest.country.getSnapshot';
@@ -14,7 +17,7 @@ export const getCountrySnapshot = async () => {
 
     return response;
   } catch (err) {
-    console.error(err);
+    showAlert(err);
   }
 };
 
@@ -24,6 +27,6 @@ export const api_userRegister = async (data: TRegisterUserData) => {
 
     return response;
   } catch (err) {
-    console.error(err);
+    showAlert(err);
   }
 };
