@@ -13,6 +13,7 @@ export enum EFormInputName {
   PASSWORD = 'password',
   REPEAT_PWD = 'repeatPassword',
   PARTNER_CODE = 'partnerCode',
+  AGREEMENT = 'agreement',
 }
 
 export type TFormInputs = {
@@ -21,6 +22,7 @@ export type TFormInputs = {
   [EFormInputName.PASSWORD]: string;
   [EFormInputName.REPEAT_PWD]: string;
   [EFormInputName.PARTNER_CODE]?: string;
+  [EFormInputName.AGREEMENT]: boolean;
 };
 
 export type TFormInputProps = {
