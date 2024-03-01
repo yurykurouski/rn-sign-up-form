@@ -2,9 +2,8 @@ import React from 'react';
 import { Input } from 'components/Input';
 import { Controller } from 'react-hook-form';
 import { TFormInputProps } from 'types';
-import { Text } from 'react-native';
-import { ERR_MSG } from '../SignUpForm/SignUpForm.constants';
 import { styles } from './FormInput.styles';
+import { ErrMessage } from 'components/ErrMessage';
 
 export const FormInput = ({
   control,
@@ -25,7 +24,7 @@ export const FormInput = ({
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <Input
-            value={value}
+            value={value as string}
             onChangeText={text => {
               onChange(text);
               trigger?.();
@@ -41,13 +40,7 @@ export const FormInput = ({
         )}
         name={formName}
       />
-      {isErrorShown && (
-        <Text style={styles.errMsg}>
-          {Array.isArray(error)
-            ? ERR_MSG[error[0]]
-            : ERR_MSG[error?.type as string]}
-        </Text>
-      )}
+      {isErrorShown && <ErrMessage error={error} />}
     </>
   );
 };
