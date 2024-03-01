@@ -17,7 +17,7 @@ type TProps = {
 export const FormAgreement = React.memo<TProps>(
   ({ formName, control, error }) => {
     const isErrorShown = Array.isArray(error) ? !!error.length : !!error;
-
+    console.log('FormAgreement: ', error);
     const handleLinkPress = () => {
       Linking.openURL(
         'https://valetax.com/wp-content/uploads/terms_of_business_valetax_v4_31_aug.pdf',

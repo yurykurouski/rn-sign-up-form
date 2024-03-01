@@ -28,5 +28,5 @@ export const SCHEMA = yup.object({
     .oneOf([yup.ref('password'), ''], 'Passwords must match')
     .default(''),
   partnerCode: yup.string().optional(),
-  agreement: yup.boolean().oneOf([true], 'required').required(),
+  agreement: yup.boolean().oneOf([true], 'required').required('required'),
 });
