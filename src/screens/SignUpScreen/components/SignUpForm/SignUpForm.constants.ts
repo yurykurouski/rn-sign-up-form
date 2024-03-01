@@ -3,6 +3,13 @@ import * as yup from 'yup';
 
 YupPassword(yup);
 
+export const ERR_MSG = {
+  required: 'Required field',
+  email: 'Symbol disallowed',
+  oneOf: 'Passwords must match',
+  optionality: 'Required field',
+} as { [key: string]: string };
+
 export const SCHEMA = yup.object({
   region: yup.string().required().default(''),
   email: yup.string().email().required().default(''),
@@ -22,10 +29,5 @@ export const SCHEMA = yup.object({
     .oneOf([yup.ref('password'), ''], 'Passwords must match')
     .default(''),
   partnerCode: yup.string().optional(),
+  agreement: yup.boolean().oneOf([true], 'required').required(),
 });
-
-export const ERR_MSG = {
-  required: 'Required field',
-  email: 'Symbol disallowed',
-  oneOf: 'Passwords must match',
-};
