@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
+    marginLeft: 4,
     fontFamily: 'Inter',
     fontWeight: 'bold',
   },
