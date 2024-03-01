@@ -18,6 +18,7 @@ export const InputSearch = ({ onSearch, placeholder }: TProps) => {
         style={styles.inputSearchStyle}
         placeholder={placeholder}
         placeholderTextColor={GRAY_300}
+        maxLength={30}
       />
     </View>
   );
