@@ -14,6 +14,7 @@ module.exports = {
           utils: './src/utils',
           api: './src/api',
           context: './src/context',
+          navigation: './src/navigation',
         },
       },
     ],
