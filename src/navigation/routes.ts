@@ -1,0 +1,5 @@
+export enum MAIN_STACK_ROUTE_NAMES {
+  SIGN_UP = 'SIGN_UP',
+  SIGN_IN = 'SIGN_IN',
+  DASHBOARD = 'DASHBOARD',
+}

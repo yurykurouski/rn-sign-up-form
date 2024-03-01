@@ -126,7 +126,7 @@ export const SignUpForm = React.memo(() => {
         containerStyle={styles.submitBtn}
       />
 
-      <LoginLink onPress={() => console.log('adasd')} />
+      <LoginLink />
     </>
   );
 });

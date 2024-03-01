@@ -1,3 +1,5 @@
+import { NavigationProp } from '@react-navigation/native';
+import { MAIN_STACK_ROUTE_NAMES } from 'navigation/routes';
 import { Control, FieldError } from 'react-hook-form';
 import { TextInputProps, ViewStyle } from 'react-native';
 
@@ -79,3 +81,6 @@ export type TRegisterUserData = {
   partnerCode?: string;
   countryId?: number;
 };
+
+export type RootStackParamList = Record<MAIN_STACK_ROUTE_NAMES, undefined>;
+export type StackNavigation = NavigationProp<RootStackParamList>;

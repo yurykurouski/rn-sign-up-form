@@ -21,11 +21,13 @@ export const SIGN_UP_REPEAT_PASSWORD_PLACEHOLDER = 'Repeat Password';
 export const SIGN_UP_PARTNER_CODE_LABEL = 'Partner Code (optional)';
 export const SIGN_UP_PARTNER_CODE_PLACEHOLDER = 'Partner Code';
 
-export const SIGNUP_SCREEN_TITLE = 'Sign Up';
-
 export const CONFIRM_AGREEMENT =
   "I confirm that I'm not a U.S. person for tax purposes and agree with the ";
 export const CLIENT_AGREEMENT = 'Client Agreement';
 
 export const ALREADY_HAVE = 'Already have an account? ';
 export const LOGIN = 'Login';
+
+export const SIGNUP_SCREEN_TITLE = 'Sign Up';
+export const SIGNIN_SCREEN_TITLE = 'Sign In';
+export const DASHBOARD_SCREEN_TITLE = 'Dashboard';

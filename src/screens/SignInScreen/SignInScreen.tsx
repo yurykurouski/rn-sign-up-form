@@ -1,19 +1,15 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
-import { SignUpForm } from './components/SignUpForm';
-import { SIGNUP_SCREEN_TITLE } from 'constants/index';
-import { Logo } from 'components/Logo';
+import { SIGNIN_SCREEN_TITLE } from 'constants/index';
 
-export const SignUpScreen = () => {
+export const SignInScreen = () => {
   return (
     <ScrollView
       contentContainerStyle={styles.container}
       automaticallyAdjustKeyboardInsets
       keyboardDismissMode="interactive"
       keyboardShouldPersistTaps="handled">
-      <Logo />
-      <Text style={styles.screenTitle}>{SIGNUP_SCREEN_TITLE}</Text>
-      <SignUpForm />
+      <Text>{SIGNIN_SCREEN_TITLE}</Text>
     </ScrollView>
   );
 };
