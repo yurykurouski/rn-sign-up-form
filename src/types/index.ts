@@ -4,6 +4,7 @@ import { TextInputProps, ViewStyle } from 'react-native';
 export enum EInputType {
   PASSWORD = 'password',
   EMAIL = 'email',
+  TEXT = 'text',
 }
 
 export enum EFormInputName {
