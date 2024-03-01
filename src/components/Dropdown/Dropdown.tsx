@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Image, View } from 'react-native';
+import Clipboard from '@react-native-clipboard/clipboard';
 import { Label } from 'components/Label';
 import {
   SIGN_UP_REGION_LABEL,
@@ -20,15 +21,64 @@ type TProps = {
   setValue?: (value: TCountry) => void;
 };
 
+const regexp = /[A-Za-z]/;
+
+const handleOnPaste = (content: string, cb: (text: string) => void) => {
+  const preparedText = content
+    .trim()
+    .match(/[A-Za-z]/g)
+    ?.join('');
+
+  cb(preparedText || '');
+};
+
+const handleOnChangeText = async (
+  content: string,
+  cb: (text: string) => void,
+) => {
+  const copiedContent = await Clipboard.getString();
+
+  const isPasted = content.includes(copiedContent);
+
+  if (isPasted) {
+    handleOnPaste(content, cb);
+  } else {
+    cb(content);
+  }
+};
+
+const handlePasteText = async (text: string) => {
+  const copiedContent = await Clipboard.getString();
+
+  return text.includes(copiedContent);
+};
+
 export const Dropdown = ({ data = [], value, setValue }: TProps) => {
   const [isFocus, setIsFocus] = useState(false);
 
-  const renderInputSearch = (onSearch: (text: string) => void) => (
-    <InputSearch
-      onSearch={onSearch}
-      placeholder={SIGN_UP_REGION_SEARCH_PLACEHOLDER}
-    />
-  );
+  const renderInputSearch = useCallback((onSearch: (text: string) => void) => {
+    const handleSearch = async (text: string) => {
+      const isPasted = await handlePasteText(text);
+
+      if (isPasted) {
+      } else {
+        if (!regexp.test(text) && text) {
+          return;
+        }
+
+        if (text.length > 1 || !text) {
+          handleOnChangeText(text, onSearch);
+        }
+      }
+    };
+
+    return (
+      <InputSearch
+        onSearch={handleSearch}
+        placeholder={SIGN_UP_REGION_SEARCH_PLACEHOLDER}
+      />
+    );
+  }, []);
 
   const renderItem = useCallback(
     (item: TCountry) => <ListItem id={item.id} name={item.name} />,
