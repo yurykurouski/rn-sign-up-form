@@ -8,9 +8,10 @@ import {
 } from 'assets';
 import { Label } from 'components/Label';
 import React, { useCallback, useState } from 'react';
-import { Pressable, TextInput, TextInputProps, View } from 'react-native';
+import { Pressable, TextInput, View } from 'react-native';
 import { EInputType, TInputProps } from 'types';
 import { styles } from './Input.styles';
+import { getInputProps } from './Input.utils';
 
 export const Input = ({
   value,
@@ -26,22 +27,7 @@ export const Input = ({
   const [isPwdVisible, setIsPwdVisible] = useState(false);
   const [isInputVisible, setIsInputVisible] = useState(!optional);
 
-  const typeProps: TextInputProps =
-    type === EInputType.EMAIL
-      ? {
-          textContentType: 'emailAddress',
-          autoComplete: type,
-          inputMode: type,
-          keyboardType: 'email-address',
-        }
-      : {
-          textContentType: type,
-          autoComplete: isNewPwd ? 'new-password' : 'current-password',
-          passwordRules: isNewPwd ? 'rule' : undefined,
-          keyboardType: 'default',
-          secureTextEntry: !isPwdVisible,
-          maxLength: 15,
-        };
+  const props = getInputProps(type, isPwdVisible, isNewPwd);
 
   const handleIconPress = useCallback(() => {
     setIsPwdVisible(prev => !prev);
@@ -71,7 +57,7 @@ export const Input = ({
             placeholder={placeholder}
             placeholderTextColor={GRAY_400}
             autoCorrect={false}
-            {...typeProps}
+            {...props}
             {...rest}
           />
           {type === EInputType.PASSWORD && (
