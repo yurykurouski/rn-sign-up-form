@@ -24,6 +24,7 @@ import { Button } from 'components/Button';
 import { FormAgreement } from '../FormAgreement';
 import { LoginLink } from '../LoginLink';
 import { CountryDataContext } from 'context/CountryDataContext';
+import { useHandleFormSubmit } from './SignUpForm.hooks';
 
 export const SignUpForm = React.memo(() => {
   const {
@@ -40,7 +41,7 @@ export const SignUpForm = React.memo(() => {
 
   const context = useContext(CountryDataContext!);
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = useHandleFormSubmit(context?.userCountry);
 
   const handleTrigger = useCallback(
     (inputName: EFormInputName) => () => trigger(inputName),
@@ -104,7 +105,7 @@ export const SignUpForm = React.memo(() => {
 
       <FormInput
         control={control}
-        type={EInputType.PASSWORD}
+        type={EInputType.TEXT}
         formName={EFormInputName.PARTNER_CODE}
         inputName={SIGN_UP_PARTNER_CODE_LABEL}
         inputPlaceholder={SIGN_UP_PARTNER_CODE_PLACEHOLDER}
@@ -113,7 +114,11 @@ export const SignUpForm = React.memo(() => {
         optional
       />
 
-      <FormAgreement isSelected={false} onPress={() => console.log('adasd')} />
+      <FormAgreement
+        control={control}
+        formName={EFormInputName.AGREEMENT}
+        error={errors[EFormInputName.AGREEMENT]}
+      />
 
       <Button
         label={SIGNUP_SCREEN_TITLE}

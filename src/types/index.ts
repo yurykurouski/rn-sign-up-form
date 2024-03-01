@@ -8,7 +8,6 @@ export enum EInputType {
 }
 
 export enum EFormInputName {
-  REGION = 'region',
   EMAIL = 'email',
   PASSWORD = 'password',
   REPEAT_PWD = 'repeatPassword',
@@ -17,7 +16,6 @@ export enum EFormInputName {
 }
 
 export type TFormInputs = {
-  [EFormInputName.REGION]: string;
   [EFormInputName.EMAIL]: string;
   [EFormInputName.PASSWORD]: string;
   [EFormInputName.REPEAT_PWD]: string;
@@ -73,4 +71,11 @@ export type TCountry = {
   id: number;
   name: string;
   phoneCode: string;
+};
+
+export type TRegisterUserData = {
+  email: string;
+  password: string;
+  partnerCode?: string;
+  countryId?: number;
 };
