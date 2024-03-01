@@ -11,7 +11,6 @@ export const ERR_MSG = {
 } as { [key: string]: string };
 
 export const SCHEMA = yup.object({
-  region: yup.string().required().default(''),
   email: yup.string().email().required().default(''),
   password: yup
     .string()
